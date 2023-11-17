@@ -1,0 +1,20 @@
+
+/* Syling all Input Tags  */
+input{
+    width: 100%;
+    height: 50px;
+}
+img{
+    transition: ease-in-out 1s;
+}
+img:active{
+    transform: scale(1.2);
+}
+
+a[target="_blank"]{
+    color: red;
+}
+
+p span{
+    text-decoration: underline;
+}
