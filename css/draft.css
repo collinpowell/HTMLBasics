@@ -29,8 +29,13 @@ header{
 .box{
     background:white;
     border-color: gray;
+    transition: ease-out 0.2s;
     border-style:solid ;
     border-width:1px ;
+}
+
+.box:hover{
+    transform: scale(1.2);
 }
 
 .c1{
