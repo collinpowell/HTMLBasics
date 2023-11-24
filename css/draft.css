@@ -1,72 +1,101 @@
-*{
-    box-sizing: border-box;
-    margin: 0;
-    text-align: center;
-    font-family: Poppins;
+* {
+  box-sizing: border-box;
+  margin: 0;
+  text-align: center;
+  font-family: Poppins;
 }
 
-body{
-    background: #000000;
-    color: white;
+body {
+  background: gray;
+  color: white;
 }
 
-header{
-    margin: 20px 0;
+header {
+  margin: 20px 0;
 }
 
-.board{
-    display: grid;
-    width: fit-content;
-    grid-template-columns: repeat(8,50px);
-    grid-template-rows: repeat(8,50px);
-    background: black;
-    margin: 20px auto;
-    border-color: black;
-    border-style:dashed;
-    border-width:20px ;
+.board {
+  display: grid;
+  width: fit-content;
+  grid-template-columns: repeat(8, 50px);
+  grid-template-rows: repeat(8, 50px);
+  background: black;
+  margin: 20px auto;
+  border-color: black;
+  border-style: dashed;
+  border-width: 20px;
 }
 
-.box{
-    background:white;
-    border-color: gray;
-    transition: ease-out 0.2s;
-    border-style:solid ;
-    border-width:1px ;
+.box {
+  transition: ease-out 0.2s;
+  border-style: solid;
+  border-width: 1px;
+  position: relative;
 }
 
-.box:hover{
-    transform: scale(1.2);
+.p1::before {
+  position: absolute;
+  width: 30px;
+  height: 30px;
+  background: rgb(128, 0, 122);
+  content: "";
+  border-radius: 100%;
+  left: 0;
+  right: 0;
+  top: 0;
+  bottom: 0;
+  margin: auto;
 }
 
-.c1{
-    background: red;
-}
-.c2{
-    background: aliceblue;
+.p1,.p2{
+  border-radius: 100%;
 }
 
-table{
-    margin: 50px auto;
+.p2::before {
+  position: absolute;
+  width: 30px;
+  height: 30px;
+  background: rgb(83, 128, 0);
+  content: "";
+  border-radius: 100%;
+  left: 0;
+  right: 0;
+  top: 0;
+  bottom: 0;
+  margin: auto;
 }
 
-table td{
-    width: 50px;
-    height: 50px;
-    background:white;
-    border-color: gray;
-    border-style:solid ;
-    border-width:1px ;
+.box:hover {
+  transform: scale(1.01);
 }
 
-
-tbody tr:nth-child(odd) td:nth-child(even){
-    background: brown;
+.c1 {
+  background: rgb(2, 71, 68);
+}
+.c2 {
+  background: aliceblue;
 }
 
-tbody tr:nth-child(even) td:nth-child(odd){
-    background: brown;
+table {
+  margin: 50px auto;
 }
 
+table td {
+  width: 50px;
+  height: 50px;
+  background: white;
+  border-color: gray;
+  border-style: solid;
+  border-width: 1px;
+}
+
+tbody tr:nth-child(odd) td:nth-child(even) {
+  background: brown;
+}
+
+tbody tr:nth-child(even) td:nth-child(odd) {
+  background: brown;
+}
 
 /**
 1px = 1/96th of 1in
@@ -80,3 +109,8 @@ vh
 vw
 %
 **/
+
+.flex {
+  display: flex;
+  justify-content: center;
+}
