@@ -62,7 +62,7 @@ let wordz = "sldkjflsd sdkfsldkfslkdfs" + size;
 let wordp = `Name is collins = ${size}`;
 
 function boardClicked() {
- // alert("Why Click the board");
+  // alert("Why Click the board");
 }
 
 console.log(words);
@@ -261,40 +261,56 @@ setInterval(myFunction, 1000);
 
 function myFunction() {
   let d = new Date();
-  document.getElementById("demo").innerHTML=
-  d.getHours() + ":" +
-  d.getMinutes() + ":" +
-  d.getSeconds();
+  document.getElementById("demo").innerHTML =
+    d.getHours() + ":" + d.getMinutes() + ":" + d.getSeconds();
 }
 
-let myPromise = new Promise(function(myResolve, myReject) {
+let myPromise = new Promise(function (myResolve, myReject) {
   // "Producing Code" (May take some time)
-    myResolve(); // when successful
-    myReject();  // when error
-  });
-  
-  // "Consuming Code" (Must wait for a fulfilled Promise)
-  myPromise.then(
-    function(value) { /* code if successful */ },
-    function(error) { /* code if some error */ }
-  );
+  myResolve(); // when successful
+  myReject(); // when error
+});
 
-async function callApi(){
-  return "Hello"
+// "Consuming Code" (Must wait for a fulfilled Promise)
+myPromise.then(
+  function (value) {
+    /* code if successful */
+  },
+  function (error) {
+    /* code if some error */
+  }
+);
+
+async function callApi() {
+  return "Hello";
 }
 
-console.log(callApi())
+console.log(callApi());
 
-callApi().then((res)=>{
-  console.log(res)
-})
+callApi().then((res) => {
+  console.log(res);
+});
 
-async function getUsers(){
-  let response = await fetch('https://dummyjson.com/users')
-  let users = await response.json()
-  console.log(users)
+async function getUsers() {
+  let response = await fetch("https://dummyjson.com/users");
+  let res = await response.json();
+  let users = res.users;
+  let cards = "";
+
+  for (let i = 0; i < users.length; i++) {
+    user = users[i];
+    console.log(user);
+
+    cards =
+      cards +
+      `<div style="box-shadow: 0px 4px 24px 0px rgba(0, 0, 0, 0.06);">
+    <img src="${user.image}" alt="img">
+</div>`;
+  }
+
+  document.getElementById("users").innerHTML = cards;
 }
 
-getUsers()
+getUsers();
 
-console.log("After Get Users")
+console.log("After Get Users");
