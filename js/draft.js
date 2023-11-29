@@ -18,7 +18,6 @@ for (i = 0; i < size; i++) {
   }
 }
 
-
 function initBoard() {
   for (let i = 0; i < size; i++) {
     for (let j = 0; j < size; j++) {
@@ -58,21 +57,21 @@ console.log("This is a console message");
 
 document.getElementsByTagName("h1")[0].innerText = "This was done by JS";
 
-let words = 'Size of board = ' + size
-let wordz = "sldkjflsd sdkfsldkfslkdfs" + size
-let wordp = `Name is collins = ${size}`
+let words = "Size of board = " + size;
+let wordz = "sldkjflsd sdkfsldkfslkdfs" + size;
+let wordp = `Name is collins = ${size}`;
 
-function boardClicked(){
-  alert("Why Click the board")
+function boardClicked() {
+ // alert("Why Click the board");
 }
 
-console.log(words)
-console.log(wordz)
-console.log(wordp)
+console.log(words);
+console.log(wordz);
+console.log(wordp);
 
 i++;
 
-i = i+1
+i = i + 1;
 
 function render() {
   let boxes = "";
@@ -83,19 +82,22 @@ function render() {
         case empty:
           boxes =
             boxes +
-            `<div id=${"box-"+i + "," + j} class='box ${checkBoxColor(i, j)}'></div>`;
+            `<div id=${"box-" + i + "," + j} class='box ${checkBoxColor(
+              i,
+              j
+            )}'></div>`;
           break;
         case p1:
           boxes =
             boxes +
-            `<div id=${"box-"+i + "," + j} class='box ${checkBoxColor(i, j)}'>
+            `<div id=${"box-" + i + "," + j} class='box ${checkBoxColor(i, j)}'>
               <div class='p1' id=${i + "," + j} draggable="true"></div>
           </div>`;
           break;
         case p2:
           boxes =
             boxes +
-            `<div id=${"box-"+i + "," + j} class='box ${checkBoxColor(i, j)}'>
+            `<div id=${"box-" + i + "," + j} class='box ${checkBoxColor(i, j)}'>
           <div class='p2' id=${i + "," + j} draggable="true"></div></div>`;
           break;
 
@@ -103,10 +105,9 @@ function render() {
           break;
       }
 
-      let draftBoard = document.getElementsByClassName("board")[0]
+      let draftBoard = document.getElementsByClassName("board")[0];
 
       draftBoard.innerHTML = boxes;
-
 
       // const dragElement = document.getElementById(`${i + "," + j}`);
       // const dropZone = document.getElementById(`${"box-"+i + "," + j}`);
@@ -130,7 +131,7 @@ function render() {
       //   console.log(data,dragElement,dropZone)
       // });
     }
-    console.log(boxes)
+    console.log(boxes);
   }
 }
 
@@ -194,13 +195,14 @@ function move(counter) {
   // return 1;
 }
 
-console.log(document)
+console.log(document);
 
-document.write("this is a done by js")
+document.write("this is a done by js");
 
-document.getElementsByTagName('h1')[0].innerText = "This was done by javascript"
+document.getElementsByTagName("h1")[0].innerText =
+  "This was done by javascript";
 
-console.log(document.getElementsByTagName('h1'))
+console.log(document.getElementsByTagName("h1"));
 
 /**
  *
@@ -215,3 +217,84 @@ console.log(document.getElementsByTagName('h1'))
  */
 
 // This is a single line comment
+
+function myDisplayer(sum) {
+  document.getElementById("demo").innerHTML = sum;
+}
+
+function myCalculator(num1, num2, callBack) {
+  let sum = num1 + num2;
+  callBack(sum);
+}
+
+myCalculator(15, 5, myDisplayer);
+
+var numbers = [3, 6, 7, 2, 1, 24, 5, 56];
+
+function max(numbers, callback) {
+  let max = numbers[0];
+  for (let i = 1; i < numbers.length; i++) {
+    if (callback(max, numbers[i])) {
+      max = numbers[i];
+    }
+  }
+  return max;
+}
+
+let maxNum = max(numbers, (x, y) => x < y);
+
+function compare(x, y) {
+  return x < y;
+}
+
+myDisplayer(maxNum);
+
+function sendAlert() {
+  //alert("THis is an asynchronous callback");
+}
+
+setTimeout(() => {
+  //alert("THis is an asynchronous callback");
+}, 5000);
+
+setInterval(myFunction, 1000);
+
+function myFunction() {
+  let d = new Date();
+  document.getElementById("demo").innerHTML=
+  d.getHours() + ":" +
+  d.getMinutes() + ":" +
+  d.getSeconds();
+}
+
+let myPromise = new Promise(function(myResolve, myReject) {
+  // "Producing Code" (May take some time)
+    myResolve(); // when successful
+    myReject();  // when error
+  });
+  
+  // "Consuming Code" (Must wait for a fulfilled Promise)
+  myPromise.then(
+    function(value) { /* code if successful */ },
+    function(error) { /* code if some error */ }
+  );
+
+async function callApi(){
+  return "Hello"
+}
+
+console.log(callApi())
+
+callApi().then((res)=>{
+  console.log(res)
+})
+
+async function getUsers(){
+  let response = await fetch('https://dummyjson.com/users')
+  let users = await response.json()
+  console.log(users)
+}
+
+getUsers()
+
+console.log("After Get Users")

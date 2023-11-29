@@ -47,9 +47,10 @@ header {
   margin: auto;
 }
 
-.p1,.p2{
-  border-radius: 100%;
-}
+/* .p1:hover,.p1:hover{
+  transform: scale(1.01);
+} */
+
 
 .p2::before {
   position: absolute;
@@ -65,9 +66,6 @@ header {
   margin: auto;
 }
 
-.box:hover {
-  transform: scale(1.01);
-}
 
 .c1 {
   background: rgb(2, 71, 68);
